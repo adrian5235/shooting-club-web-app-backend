@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:8081/")
+@CrossOrigin("http://localhost:8081/") // <- Port aplikacji vue
 public class TournamentController {
 
     private final TournamentRepository repository;
