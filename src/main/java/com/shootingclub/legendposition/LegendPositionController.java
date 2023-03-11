@@ -14,23 +14,23 @@ public class LegendPositionController {
     }
 
     @GetMapping("/legendPositions")
-    List<LegendPosition> all() {
+    List<LegendPosition> getAll() {
         return repository.findAll();
     }
 
     @PostMapping("/legendPositions")
-    LegendPosition newLegendPosition(@RequestBody LegendPosition newLegendPosition) {
+    LegendPosition add(@RequestBody LegendPosition newLegendPosition) {
         return repository.save(newLegendPosition);
     }
 
     @GetMapping("/legendPositions/{id}")
-    LegendPosition one(@PathVariable Integer id) {
+    LegendPosition get(@PathVariable Integer id) {
         return repository.findById(id)
                 .orElseThrow(() -> new LegendPositionNotFoundException(id));
     }
 
     @PutMapping("/legendPositions/{id}")
-    LegendPosition replaceLegendPosition(@RequestBody LegendPosition newLegendPosition, @PathVariable Integer id) {
+    LegendPosition replace(@RequestBody LegendPosition newLegendPosition, @PathVariable Integer id) {
         return repository.findById(id)
                 .map(legendPosition -> {
                     legendPosition.setShortcut(newLegendPosition.getShortcut());
@@ -44,7 +44,7 @@ public class LegendPositionController {
     }
 
     @DeleteMapping("/legendPositions/{id}")
-    void deleteLegendPosition(@PathVariable Integer id) {
+    void delete(@PathVariable Integer id) {
         repository.deleteById(id);
     }
 }

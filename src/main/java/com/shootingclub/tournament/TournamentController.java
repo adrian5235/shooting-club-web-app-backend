@@ -14,23 +14,23 @@ public class TournamentController {
     }
 
     @GetMapping("/tournaments")
-    List<Tournament> all() {
+    List<Tournament> getAll() {
         return repository.findAll();
     }
 
     @PostMapping("/tournaments")
-    Tournament newTournament(@RequestBody Tournament newTournament) {
+    Tournament add(@RequestBody Tournament newTournament) {
         return repository.save(newTournament);
     }
 
     @GetMapping("/tournaments/{id}")
-    Tournament one(@PathVariable Integer id) {
+    Tournament get(@PathVariable Integer id) {
         return repository.findById(id)
                 .orElseThrow(() -> new TournamentNotFoundException(id));
     }
 
     @PutMapping("/tournaments/{id}")
-    Tournament replaceTournament(@RequestBody Tournament newTournament, @PathVariable Integer id) {
+    Tournament replace(@RequestBody Tournament newTournament, @PathVariable Integer id) {
         return repository.findById(id)
                 .map(tournament -> {
                     tournament.setDate(newTournament.getDate());
@@ -48,7 +48,7 @@ public class TournamentController {
     }
 
     @DeleteMapping("/tournaments/{id}")
-    void deleteTournament(@PathVariable Integer id) {
+    void delete(@PathVariable Integer id) {
         repository.deleteById(id);
     }
 }
