@@ -9,6 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
 public class LegendPosition {
@@ -17,8 +18,10 @@ public class LegendPosition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NonNull
     private String shortcut;
 
+    @NonNull
     private String name;
 
     @Override
