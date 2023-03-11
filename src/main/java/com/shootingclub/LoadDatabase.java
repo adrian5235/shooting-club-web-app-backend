@@ -26,6 +26,7 @@ public class LoadDatabase {
                     "Mk",
                     "GP KM")));
             log.info("Preloading " + lpr.save(new LegendPosition("Mk", "broń małokalibrowa")));
+            log.info("Test");
         };
     }
 }
