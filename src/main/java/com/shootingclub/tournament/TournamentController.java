@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:8081/")
 public class TournamentController {
 
     private final TournamentRepository repository;
